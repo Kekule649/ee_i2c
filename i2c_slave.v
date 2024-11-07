@@ -1,8 +1,8 @@
 module i2c_slave(
 	inout sda,
 	inout scl,
-	input data_fetch,
-	output data_send
+	input reg [31:0] data_fetch,
+	output reg [31:0] data_send
 	);
 	
 	localparam ADDRESS = 7'b0101010;
@@ -17,8 +17,6 @@ module i2c_slave(
 	reg [7:0] addr;
 	reg [7:0] counter;
 	reg [7:0] state = 0;
-	reg [31:0] data_fetch;
-	reg [31:0] data_send;
 	//reg [31:0] data_out = 32'b11001100101010101111000011110000;
 	reg sda_out = 0;
 	reg sda_in = 0;
